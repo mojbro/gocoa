@@ -37,3 +37,8 @@ func (textField *TextField) SetStringValue(text string) {
 	defer C.free(unsafe.Pointer(cText))
 	C.TextField_SetStringValue(textField.textFieldPtr, cText)
 }
+
+// Remove - removes a Text Field from the parent view
+func (textField *TextField) Remove() {
+	C.TextField_Remove(textField.textFieldPtr)
+}

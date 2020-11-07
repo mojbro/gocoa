@@ -8,7 +8,8 @@
 }
 @end
 
-ButtonPtr Button_New(int goButtonID, int x, int y, int w, int h) {
+ButtonPtr Button_New(int goButtonID, int x, int y, int w, int h)
+{
     id nsButton = [[[NSButton alloc] initWithFrame:NSMakeRect(x, y, w, h)] autorelease];
     ButtonHandler* handler = [[ButtonHandler alloc] init];
     [handler setGoButtonID:goButtonID];
@@ -22,7 +23,14 @@ ButtonPtr Button_New(int goButtonID, int x, int y, int w, int h) {
     return (ButtonPtr)nsButton;
 }
 
-void Button_SetTitle(ButtonPtr btnPtr, const char* title) {
+void Button_SetTitle(ButtonPtr btnPtr, const char* title)
+{
     NSButton* button = (NSButton*)btnPtr;
     [button setTitle:[NSString stringWithUTF8String:title]];
+}
+
+void Button_Remove(ButtonPtr btnPtr) 
+{
+    NSButton* button = (NSButton*)btnPtr;
+    [button removeFromSuperview];
 }

@@ -13,3 +13,4 @@ typedef void* ButtonPtr;
 
 ButtonPtr Button_New(int goButtonID, int x, int y, int w, int h);
 void Button_SetTitle(ButtonPtr btnPtr, const char* title);
+void Button_Remove(ButtonPtr btnPtr);

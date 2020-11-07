@@ -32,3 +32,8 @@ func (textview *TextView) SetText(text string) {
 	defer C.free(unsafe.Pointer(cText))
 	C.TextView_SetText(textview.textViewPtr, cText)
 }
+
+// Remove - removes a Text View from the parent view
+func (textview *TextView) Remove() {
+	C.TextView_Remove(textview.textViewPtr)
+}

@@ -11,6 +11,7 @@ import (
 // Button represents a button control that can trigger actions.
 type Button struct {
 	buttonPtr C.ButtonPtr
+	tag       int
 	callback  func()
 }
 
@@ -49,4 +50,9 @@ func (btn *Button) SetTitle(title string) {
 // OnClick - function, that will be triggered, if the button is clicked.
 func (btn *Button) OnClick(fn func()) {
 	btn.callback = fn
+}
+
+// Remove - removes a button from the parent view
+func (btn *Button) Remove() {
+	C.Button_Remove(btn.buttonPtr)
 }

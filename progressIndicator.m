@@ -1,7 +1,8 @@
 #import "progressIndicator.h"
 #include "_cgo_export.h"
 
-ProgressIndicatorPtr ProgressIndicator_New(int x, int y, int width, int height) {
+ProgressIndicatorPtr ProgressIndicator_New(int x, int y, int width, int height)
+{
     id nsProgressIndicator = [[NSProgressIndicator alloc] init];
     [nsProgressIndicator setFrame: NSMakeRect(x, y, width, height)];
     //[nsProgressIndicator setBounds: NSMakeRect(x, y, width, height)];
@@ -74,7 +75,8 @@ int ProgressIndicator_IsIndeterminate(ProgressIndicatorPtr progressIndicatorPtr)
     return 0;
 }
 
-void ProgressIndicator_SetDisplayedWhenStopped(ProgressIndicatorPtr progressIndicatorPtr, int value) {
+void ProgressIndicator_SetDisplayedWhenStopped(ProgressIndicatorPtr progressIndicatorPtr, int value)
+{
     NSProgressIndicator* progressIndicator = (NSProgressIndicator*)progressIndicatorPtr;
     if(value > 0) {
         [progressIndicator setDisplayedWhenStopped: YES];
@@ -91,7 +93,8 @@ void ProgressIndicator_Show(ProgressIndicatorPtr progressIndicatorPtr)
     });
 }
 
-void ProgressIndicator_Hide(ProgressIndicatorPtr progressIndicatorPtr){
+void ProgressIndicator_Hide(ProgressIndicatorPtr progressIndicatorPtr)
+{
     NSProgressIndicator* progressIndicator = (NSProgressIndicator*)progressIndicatorPtr;
     [NSThread sleepForTimeInterval:1.0];
     dispatch_async(dispatch_get_main_queue(), ^{
